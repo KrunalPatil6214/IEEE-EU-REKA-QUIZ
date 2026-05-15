@@ -114,15 +114,35 @@ function GlitchText({
 }) {
   return (
     <span
-      className={`relative inline-block select-none ${className}`}
+      className={`relative inline-block select-none leading-tight ${className}`}
       style={{ fontFamily: "'Fira Code', 'Roboto Mono', monospace" }}
     >
-      <span aria-hidden className="absolute inset-0 text-[#45A29E] opacity-60" style={{ clipPath: "inset(30% 0 40% 0)", transform: "translateX(-2px)" }}>
+      {/* Very subtle ghost layers — chromatic aberration only, don't fight readability */}
+      <span
+        aria-hidden
+        className="absolute inset-0 opacity-25"
+        style={{
+          clipPath: "inset(20% 0 55% 0)",
+          transform: "translateX(-1px)",
+          color: "#45A29E",
+          pointerEvents: "none",
+        }}
+      >
         {text}
       </span>
-      <span aria-hidden className="absolute inset-0 text-[#FFC300] opacity-40" style={{ clipPath: "inset(60% 0 10% 0)", transform: "translateX(2px)" }}>
+      <span
+        aria-hidden
+        className="absolute inset-0 opacity-20"
+        style={{
+          clipPath: "inset(70% 0 5% 0)",
+          transform: "translateX(1px)",
+          color: "#FFC300",
+          pointerEvents: "none",
+        }}
+      >
         {text}
       </span>
+      {/* Main readable text */}
       {text}
     </span>
   );
@@ -169,7 +189,7 @@ function BootSequence({ onComplete }: { onComplete: () => void }) {
       exit={{ opacity: 0 }}
       className="w-full max-w-2xl mx-auto"
     >
-      <div className="border border-[#45A29E]/40 rounded-sm p-6 bg-[#0B0C10]/90 font-mono text-sm space-y-1 min-h-[260px]">
+      <div className="border border-[#45A29E]/40 rounded-sm p-4 md:p-6 bg-[#0B0C10]/90 font-mono text-xs md:text-sm space-y-1 min-h-[200px] md:min-h-[260px] overflow-x-auto">
         {lines.filter((l): l is string => typeof l === "string").map((l, i) => (
           <motion.div
             key={i}
@@ -201,7 +221,7 @@ function BootSequence({ onComplete }: { onComplete: () => void }) {
           >
             <button
               onClick={onComplete}
-              className="group relative overflow-hidden border border-[#45A29E] px-10 py-4 font-mono text-[#45A29E] tracking-widest text-sm uppercase transition-all hover:text-[#0B0C10] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#45A29E]"
+              className="group relative overflow-hidden border border-[#45A29E] px-6 md:px-10 py-4 font-mono text-[#45A29E] tracking-wider md:tracking-widest text-xs md:text-sm uppercase transition-all hover:text-[#0B0C10] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#45A29E] text-center"
             >
               <span className="absolute inset-0 bg-[#45A29E] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out" />
               <span className="relative">[ HOLD TO OVERRIDE MAINFRAME ]</span>
@@ -291,7 +311,7 @@ function UserDetailsForm({
 
         <Button
           onClick={handle}
-          className="w-full mt-4 bg-transparent border border-[#45A29E] text-[#45A29E] font-mono tracking-widest text-xs hover:bg-[#45A29E] hover:text-[#0B0C10] rounded-none transition-all py-5"
+          className="w-full mt-4 bg-transparent border border-[#45A29E] text-[#45A29E] font-mono tracking-wider md:tracking-widest text-[10px] md:text-xs hover:bg-[#45A29E] hover:text-[#0B0C10] rounded-none transition-all py-5 whitespace-normal leading-tight h-auto"
         >
           CONFIRM IDENTITY — PROCEED TO LAB
         </Button>
@@ -352,7 +372,7 @@ function OptionCard({
   delay: number;
 }) {
   const base =
-    "relative w-full text-left border px-5 py-4 font-mono transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#45A29E] rounded-sm";
+    "relative w-full text-left border px-4 md:px-5 py-3 md:py-4 font-mono transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#45A29E] rounded-sm";
 
   const styles: Record<string, string> = {
     idle: "border-[#45A29E]/25 bg-transparent text-[#EAEAEA] hover:border-[#45A29E] hover:bg-[#45A29E]/5",
@@ -372,15 +392,17 @@ function OptionCard({
       className={`${base} ${styles[state]}`}
       disabled={state === "dimmed" || state === "correct" || state === "wrong"}
     >
-      <span className="text-[#45A29E]/50 mr-3 text-xs">[{label}]</span>
-      <span className="text-sm leading-relaxed">{text}</span>
+      <div className="flex items-start gap-2">
+        <span className="text-[#45A29E]/50 text-xs shrink-0 mt-0.5">[{label}]</span>
+        <span className="text-sm leading-relaxed flex-1 pr-1">{text}</span>
+      </div>
       {(state === "correct") && (
-        <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#45A29E] text-xs font-mono">
+        <span className="block mt-1 text-[#45A29E] text-[10px] font-mono tracking-widest text-right">
           ✓ CORRECT
         </span>
       )}
       {(state === "wrong") && (
-        <span className="absolute right-4 top-1/2 -translate-y-1/2 text-red-400 text-xs font-mono">
+        <span className="block mt-1 text-red-400 text-[10px] font-mono tracking-widest text-right">
           ✗ WRONG
         </span>
       )}
@@ -430,13 +452,13 @@ function QuizScreen({
       className="w-full max-w-2xl mx-auto space-y-6"
     >
       {/* Top bar */}
-      <div className="flex items-center justify-between font-mono text-xs text-[#888] border-b border-[#45A29E]/20 pb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 font-mono text-xs text-[#888] border-b border-[#45A29E]/20 pb-3">
         <span className="text-[#45A29E]/80">
           SECTOR <span className="text-[#FFC300]">{qIndex + 1}</span>
           <span className="text-[#888]">/6</span> CLEARED
         </span>
         <span>
-          SYSTEM INTEGRITY:{" "}
+          INTEGRITY:{" "}
           <span className="text-[#45A29E]">{score * 2}/12 pts</span>
         </span>
       </div>
@@ -623,7 +645,7 @@ export default function EurekaLabQuiz() {
 
   return (
     <div
-      className="relative min-h-screen bg-[#0B0C10] flex flex-col items-center justify-center p-6 overflow-hidden"
+      className="relative min-h-screen bg-[#0B0C10] flex flex-col items-center justify-center px-4 py-8 md:p-6 overflow-hidden"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
       <Scanlines />
@@ -645,19 +667,78 @@ export default function EurekaLabQuiz() {
 
       {/* Header */}
       <motion.div
-        className="mb-10 text-center select-none"
-        initial={{ opacity: 0, y: -16 }}
+        className="mb-6 md:mb-10 text-center select-none px-4 space-y-3"
+        initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
       >
-        <p className="font-mono text-[10px] tracking-[0.35em] text-[#45A29E]/40 mb-1">
-          EUREKA RESEARCH FACILITY — TERMINAL ACCESS
-        </p>
-        <h1
-          className="text-3xl md:text-4xl text-[#EAEAEA] tracking-tight"
-          style={{ fontFamily: "'Fira Code', 'Roboto Mono', monospace" }}
+        {/* IEEE pill badge */}
+        {/* <motion.div
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.15, duration: 0.4 }}
+          className="inline-flex items-center gap-2 border border-[#45A29E]/40 bg-[#45A29E]/8 px-4 py-1.5 rounded-full"
         >
-          <GlitchText text="THE EU-REKA VAULT" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#45A29E] animate-pulse" />
+          <span className="font-mono text-[10px] md:text-[11px] tracking-[0.25em] text-[#45A29E]/80 uppercase">
+            IEEE · Eu-Reka Lab Challenge
+          </span>
+        </motion.div> */}
+
+        {/* Main title */}
+        <h1 className="leading-none relative inline-block">
+          {/* Teal glitch echo — purely decorative, sits behind */}
+          <span
+            aria-hidden
+            className="absolute inset-0 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight pointer-events-none select-none"
+            style={{
+              fontFamily: "'Fira Code', 'Roboto Mono', monospace",
+              color: "#45A29E",
+              opacity: 0.18,
+              transform: "translateX(-1.5px)",
+              clipPath: "inset(15% 0 60% 0)",
+            }}
+          >
+            The Eu-Reka Vault
+          </span>
+          <span
+            aria-hidden
+            className="absolute inset-0 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight pointer-events-none select-none"
+            style={{
+              fontFamily: "'Fira Code', 'Roboto Mono', monospace",
+              color: "#FFC300",
+              opacity: 0.14,
+              transform: "translateX(1.5px)",
+              clipPath: "inset(65% 0 5% 0)",
+            }}
+          >
+            The Eu-Reka Vault
+          </span>
+          {/* Main gradient text — always readable */}
+          <span
+            className="relative text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight"
+            style={{
+              fontFamily: "'Fira Code', 'Roboto Mono', monospace",
+              background: "linear-gradient(120deg, #e2e8f0 0%, #66FCF1 45%, #45A29E 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              filter: "drop-shadow(0 0 20px rgba(102,252,241,0.35))",
+            }}
+          >
+            The Eu-Reka Vault
+          </span>
         </h1>
+
+        {/* Tagline */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.35 }}
+          className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] text-[#888]/60"
+        >
+          Escape the lab · Answer to survive
+        </motion.p>
       </motion.div>
 
       {/* Phase renderer */}
@@ -705,7 +786,7 @@ export default function EurekaLabQuiz() {
       </div>
 
       {/* Footer */}
-      <p className="mt-8 font-mono text-[10px] text-[#888]/30 tracking-widest select-none">
+      <p className="mt-6 md:mt-8 font-mono text-[9px] md:text-[10px] text-[#888]/30 tracking-wider md:tracking-widest select-none text-center px-4 break-words">
         SYS STATUS: CRITICAL — CONTAINMENT BREACH IN PROGRESS
       </p>
     </div>
