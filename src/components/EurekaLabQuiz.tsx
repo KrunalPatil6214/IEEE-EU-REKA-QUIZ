@@ -10,156 +10,157 @@ import { Button } from "@/components/ui/button";
 
 const QUESTIONS = [
   {
-    "question": "A drone team is designing a heavy-lift rescue quadcopter. To maximize thrust and overall motor efficiency for a given propeller size, what type of motor and electronic speed controller (ESC) setup should they implement?",
+    "question": "An engineering team needs to design a system that automatically turns on streetlights only when the ambient environmental light drops below a certain threshold. Which sensor is best suited for this application?",
     "options": [
-      "Brushed DC motor with a mechanical relay switch",
-      "Brushless DC (BLDC) motor with a three-phase ESC",
-      "Stepper motor with an H-bridge driver",
-      "AC Induction motor with a variable frequency drive"
+      "Ultrasonic Sensor",
+      "Photoresistor (LDR)",
+      "Piezoelectric Sensor",
+      "Thermocouple"
     ],
     "ans": 1
   },
   {
-    "question": "You need to measure the structural strain on a concrete bridge support after an earthquake. Which electrical component changes its resistance when mechanical force or deformation is applied, making it ideal for this task?",
+    "question": "A production line requires an electric motor that can rotate a specific number of degrees with high precision for accurate positioning without using a feedback sensor. Which type of motor is designed for this task?",
     "options": [
-      "Piezoelectric buzzer",
-      "Strain gauge",
-      "Thermistor",
-      "Zener diode"
+      "DC Brushed Motor",
+      "AC Induction Motor",
+      "Stepper Motor",
+      "Universal Motor"
+    ],
+    "ans": 2
+  },
+  {
+    "question": "When designing a bridge or structural beam, engineers must select a material that can withstand significant pulling forces without breaking. What mechanical property describes this resistance?",
+    "options": [
+      "Compressive strength",
+      "Tensile strength",
+      "Hardness",
+      "Ductility"
     ],
     "ans": 1
   },
   {
-    "question": "A temporary communications tower experiences signal distortion because the transmitting antenna's output impedance doesn't match the transmission line's impedance. What issue does this cause?",
+    "question": "An electronic circuit requires a steady 5V DC output, but the input power supply fluctuates between 7V and 12V DC. Which component should be used to maintain the stable 5V output?",
     "options": [
-      "Signal reflection and high Standing Wave Ratio (SWR)",
-      "An unexpected increase in battery power efficiency",
-      "A complete inversion of the signal's frequency spectrum",
-      "Immediate physical burnout of the receiving antenna"
+      "Voltage Regulator",
+      "Transformer",
+      "Inductor",
+      "Capacitor"
     ],
     "ans": 0
   },
   {
-    "question": "You are building a backup power grid using solar panels and 12V deep-cycle batteries. To safely charge the batteries without overcharging or causing a thermal runaway, which device must be wired between the panels and the batteries?",
+    "question": "In mechanical systems, a specific type of gear assembly is used to connect two non-parallel, intersecting shafts—typically at a 90-degree angle. What are these gears called?",
     "options": [
-      "Buck-boost converter",
-      "Charge controller",
-      "Full-wave bridge rectifier",
-      "Inverter"
-    ],
-    "ans": 1
-  },
-  {
-    "question": "The mechanical team needs to join two thick steel plates for a high-pressure storage tank that must withstand extreme stress and prevent leaks. Which manufacturing process provides the strongest, molecular-level joint?",
-    "options": [
-      "Pop riveting",
-      "Shielded Metal Arc Welding (SMAW)",
-      "Industrial adhesive bonding",
-      "Threaded bolt fastening"
-    ],
-    "ans": 1
-  },
-  {
-    "question": "A water purification system uses a microcontroller that operates at 3.3V, but the automated flow valve requires a 12V signal to actuate. Which component can act as an isolated electronic switch to bridge this voltage gap safely?",
-    "options": [
-      "Linear voltage regulator",
-      "Ceramic capacitor",
-      "Optocoupler and an external transistor",
-      "Schottky diode"
+      "Spur gears",
+      "Helical gears",
+      "Bevel gears",
+      "Planetary gears"
     ],
     "ans": 2
   },
   {
-    "question": "While designing a robotic arm for clearing debris, you notice the joints 'slip' and lose their exact angle when power is turned off. What mechanism or component should be added to lock the joint positions mechanically when unpowered?",
+    "question": "A microcontroller needs to send data to a peripheral device using a serial protocol that utilizes a shared clock line (SCLK) and two separate data lines (MOSI and MISO). Which communication protocol is this?",
     "options": [
-      "Flywheel",
-      "Electromagnetic brake",
-      "Slip ring",
-      "Centrifugal governor"
-    ],
-    "ans": 1
-  },
-  {
-    "question": "You are writing firmware for an emergency alert system. The system needs to immediately pause its main loop code to process a critical button press from a user. What programming mechanism should you use?",
-    "options": [
-      "Polling loop",
-      "Hardware interrupt",
-      "Delay function",
-      "Switch-case statement"
-    ],
-    "ans": 1
-  },
-  {
-    "question": "A field hospital needs to filter out high-frequency electrical noise from a backup diesel generator that is corrupting patient heart monitor data. What type of electrical filter should be installed?",
-    "options": [
-      "High-pass filter",
-      "Band-pass filter",
-      "Low-pass filter",
-      "Notch-up filter"
+      "I2C",
+      "UART",
+      "SPI",
+      "CAN bus"
     ],
     "ans": 2
   },
   {
-    "question": "You need to select a material for a heat sink to cool down a hot power inverter. Which property should you prioritize to ensure maximum heat is drawn away from the electronics quickly?",
+    "question": "An engineering team is selecting a material for a heat exchanger. They need a material that transfers thermal energy as quickly and efficiently as possible. Which property must be maximized?",
     "options": [
-      "High tensile strength",
-      "High electrical resistance",
-      "High thermal conductivity",
-      "Low coefficient of thermal expansion"
+      "Thermal expansion",
+      "Specific heat capacity",
+      "Thermal conductivity",
+      "Thermal resistance"
     ],
     "ans": 2
   },
   {
-    "question": "A mechanical winch system needs to lift a 2-ton shipping container using a relatively low-torque motor. What type of mechanical system can trade speed for increased lifting force?",
-    "options": [
-      "Bevel gear set with a 1:1 ratio",
-      "Worm gear reduction gearbox",
-      "Universal joint assembly",
-      "Chain coupling"
-    ],
-    "ans": 1
-  },
-  {
-    "question": "An off-grid weather station's digital temperature sensor output fluctuates wildly due to minor environmental vibrations. To smooth out the data curve in software without delaying real trends, what digital filter is easiest to implement?",
-    "options": [
-      "Fast Fourier Transform (FFT)",
-      "Moving average filter",
-      "High-pass Butterworth filter",
-      "Phase-locked loop (PLL)"
-    ],
-    "ans": 1
-  },
-  {
-    "question": "You are designing a piping network to transport fuel. To prevent the fluid from reversing direction and contaminating the source tank if the main pump fails, which type of valve must be installed?",
+    "question": "A fluid piping system experiences an unexpected reversal of flow, which could damage upstream pumps and instrumentation. What type of valve should be installed to automatically prevent backflow?",
     "options": [
       "Gate valve",
-      "Butterfly valve",
       "Check valve",
-      "Needle valve"
-    ],
-    "ans": 2
-  },
-  {
-    "question": "A team is building a concrete bunker. They need to increase the tensile and shear strength of the concrete structure so it doesn't crack or collapse under heavy shifting loads. What should they embed inside the concrete?",
-    "options": [
-      "Carbon fiber sheets on the surface",
-      "Steel rebar matrix",
-      "Aluminum mesh panels",
-      "Polyurethane foam cores"
+      "Ball valve",
+      "Butterfly valve"
     ],
     "ans": 1
   },
   {
-    "question": "An autonomous rover keeps drifting off course because its wheels slip on sandy terrain. You have an accelerometer, but it accumulates positional errors over time. What sensor should you add to measure angular velocity and fix orientation tracking?",
+    "question": "During a software development project, the team needs to implement a mechanism where a hardware device immediately notifies the CPU to pause its current execution and handle an urgent task. What is this mechanism?",
     "options": [
-      "Barometric pressure sensor",
-      "Ultrasonic distance sensor",
-      "Gyrosensor",
-      "Hall-effect wheel encoder"
+      "Polling",
+      "Interrupt",
+      "Looping",
+      "Threading"
+    ],
+    "ans": 1
+  },
+  {
+    "question": "To convert the rotating mechanical energy of a wind turbine or water wheel into electrical energy, which electrical machine is required?",
+    "options": [
+      "Transformer",
+      "Electric Motor",
+      "Generator",
+      "Inverter"
     ],
     "ans": 2
+  },
+  {
+    "question": "An electrical circuit contains a component designed to store energy in an electromagnetic field whenever electrical current flows through it. What is this component?",
+    "options": [
+      "Resistor",
+      "Capacitor",
+      "Diode",
+      "Inductor"
+    ],
+    "ans": 3
+  },
+  {
+    "question": "When mixing concrete for a high-strength structural foundation, what material is primarily responsible for binding the aggregate (sand and gravel) together into a solid mass?",
+    "options": [
+      "Gypsum",
+      "Lime",
+      "Cement",
+      "Asphalt"
+    ],
+    "ans": 2
+  },
+  {
+    "question": "An automated system keeps drifting away from its targeted operational value due to environmental disturbances. What classic feedback control algorithm uses proportional, integral, and derivative terms to automatically correct this error?",
+    "options": [
+      "PID Controller",
+      "Fuzzy Logic Controller",
+      "Bang-Bang Controller",
+      "Open-Loop Controller"
+    ],
+    "ans": 0
+  },
+  {
+    "question": "An engineer needs to measure the exact distance to an object a few meters away without making physical contact. Which type of sensor emits high-frequency sound waves and times their echo to calculate distance?",
+    "options": [
+      "Infrared Sensor",
+      "Ultrasonic Sensor",
+      "Laser Rangefinder",
+      "Proximity Switch"
+    ],
+    "ans": 1
+  },
+  {
+    "question": "In electronic manufacturing, what is the primary purpose of applying a solder mask layer to a printed circuit board (PCB)?",
+    "options": [
+      "To increase the electrical conductivity of the copper traces",
+      "To protect against oxidation and prevent accidental solder bridges between close pads",
+      "To provide a magnetic shield against high-frequency interference",
+      "To act as a heat sink for surface-mount components"
+    ],
+    "ans": 1
   }
 ];
+
 
 
 // ─── Types ────────────────────────────────────────────────────────────────────
