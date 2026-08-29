@@ -10,67 +10,157 @@ import { Button } from "@/components/ui/button";
 
 const QUESTIONS = [
   {
-    question:
-      "The lab's main water supply is locked down, but you find a backup 5V water pump. You need to wire a system that automatically dispenses clean water into a container only when a survivor's hand (or a rescue dog) is placed directly beneath the spout. Which sensor is best suited to detect this close-proximity presence and trigger the pump's relay?",
-    options: [
-      "MQ-2 Gas Sensor",
-      "Infrared (IR) Proximity Sensor",
-      "LDR (Photoresistor)",
-      "Soil Moisture Sensor",
+    "question": "A drone team is designing a heavy-lift rescue quadcopter. To maximize thrust and overall motor efficiency for a given propeller size, what type of motor and electronic speed controller (ESC) setup should they implement?",
+    "options": [
+      "Brushed DC motor with a mechanical relay switch",
+      "Brushless DC (BLDC) motor with a three-phase ESC",
+      "Stepper motor with an H-bridge driver",
+      "AC Induction motor with a variable frequency drive"
     ],
-    ans: 1,
+    "ans": 1
   },
   {
-    question:
-      "You need to fabricate a custom replacement gear to fix a jammed mechanical door lock. You decide to use the lab's emergency FDM 3D printer. To ensure the newly printed gear has maximum structural strength and its teeth don't snap off under shear force, how should the part be oriented on the build plate?",
-    options: [
-      "Upright, so the layer lines are parallel to the rotational force.",
-      "Flat on its face, so the layer lines are perpendicular to the rotational force.",
-      "At a 45-degree angle to minimize the use of support material.",
-      "Print orientation has no effect on the mechanical strength of FDM parts.",
+    "question": "You need to measure the structural strain on a concrete bridge support after an earthquake. Which electrical component changes its resistance when mechanical force or deformation is applied, making it ideal for this task?",
+    "options": [
+      "Piezoelectric buzzer",
+      "Strain gauge",
+      "Thermistor",
+      "Zener diode"
     ],
-    ans: 1,
+    "ans": 1
   },
   {
-    question:
-      "You are wiring an ESP32 microcontroller to send an automated SOS signal over the local network. You only have a 9V battery, but supplying 9V directly to the ESP32 will fry the board. What component must you wire between the battery and the microcontroller to safely step the voltage down?",
-    options: [
-      "A 10k ohm pull-up resistor",
-      "A 3.3V Voltage Regulator (e.g., LM3940)",
-      "An L298N Motor Driver",
-      "A standard NPN Transistor",
+    "question": "A temporary communications tower experiences signal distortion because the transmitting antenna's output impedance doesn't match the transmission line's impedance. What issue does this cause?",
+    "options": [
+      "Signal reflection and high Standing Wave Ratio (SWR)",
+      "An unexpected increase in battery power efficiency",
+      "A complete inversion of the signal's frequency spectrum",
+      "Immediate physical burnout of the receiving antenna"
     ],
-    ans: 1,
+    "ans": 0
   },
   {
-    question:
-      "You are trapped in the lab's high-speed transport testing bay. To safely use a prototype ladder frame chassis as a battering ram to break through the loading dock doors, you must ensure the TIG welds hold. Which non-destructive testing method would allow you to check the welds for microscopic internal flaws without damaging the frame?",
-    options: [
-      "Ultrasonic Testing",
-      "Visual Inspection with a high-powered magnifying glass",
-      "Applying a heavy load until the metal begins to yield",
-      "Measuring the electrical resistance from one end of the frame to the other",
+    "question": "You are building a backup power grid using solar panels and 12V deep-cycle batteries. To safely charge the batteries without overcharging or causing a thermal runaway, which device must be wired between the panels and the batteries?",
+    "options": [
+      "Buck-boost converter",
+      "Charge controller",
+      "Full-wave bridge rectifier",
+      "Inverter"
     ],
-    ans: 0,
+    "ans": 1
   },
   {
-    question:
-      "To safely extract a highly reactive chemical key from a corrosive acid bath, you must coat a regular pair of tongs with a microscopically thin, ultra-hard protective layer using the lab's Physical Vapor Deposition (PVD) chamber. What state of matter is the coating material transformed into during this process before it adheres to the tongs?",
-    options: [
-      "A supercooled liquid",
-      "A dense, pressurized gas",
-      "A plasma or vaporized state",
-      "A Bose-Einstein condensate",
+    "question": "The mechanical team needs to join two thick steel plates for a high-pressure storage tank that must withstand extreme stress and prevent leaks. Which manufacturing process provides the strongest, molecular-level joint?",
+    "options": [
+      "Pop riveting",
+      "Shielded Metal Arc Welding (SMAW)",
+      "Industrial adhesive bonding",
+      "Threaded bolt fastening"
     ],
-    ans: 2,
+    "ans": 1
   },
   {
-    question:
-      "The final blast door requires two separate, physically distant switches to be flipped ON simultaneously to activate the release mechanism. If either switch is OFF, or if both are OFF, the door remains locked. Which logic gate fundamentally represents this security setup?",
-    options: ["OR Gate", "XOR Gate", "AND Gate", "NOT Gate"],
-    ans: 2,
+    "question": "A water purification system uses a microcontroller that operates at 3.3V, but the automated flow valve requires a 12V signal to actuate. Which component can act as an isolated electronic switch to bridge this voltage gap safely?",
+    "options": [
+      "Linear voltage regulator",
+      "Ceramic capacitor",
+      "Optocoupler and an external transistor",
+      "Schottky diode"
+    ],
+    "ans": 2
   },
+  {
+    "question": "While designing a robotic arm for clearing debris, you notice the joints 'slip' and lose their exact angle when power is turned off. What mechanism or component should be added to lock the joint positions mechanically when unpowered?",
+    "options": [
+      "Flywheel",
+      "Electromagnetic brake",
+      "Slip ring",
+      "Centrifugal governor"
+    ],
+    "ans": 1
+  },
+  {
+    "question": "You are writing firmware for an emergency alert system. The system needs to immediately pause its main loop code to process a critical button press from a user. What programming mechanism should you use?",
+    "options": [
+      "Polling loop",
+      "Hardware interrupt",
+      "Delay function",
+      "Switch-case statement"
+    ],
+    "ans": 1
+  },
+  {
+    "question": "A field hospital needs to filter out high-frequency electrical noise from a backup diesel generator that is corrupting patient heart monitor data. What type of electrical filter should be installed?",
+    "options": [
+      "High-pass filter",
+      "Band-pass filter",
+      "Low-pass filter",
+      "Notch-up filter"
+    ],
+    "ans": 2
+  },
+  {
+    "question": "You need to select a material for a heat sink to cool down a hot power inverter. Which property should you prioritize to ensure maximum heat is drawn away from the electronics quickly?",
+    "options": [
+      "High tensile strength",
+      "High electrical resistance",
+      "High thermal conductivity",
+      "Low coefficient of thermal expansion"
+    ],
+    "ans": 2
+  },
+  {
+    "question": "A mechanical winch system needs to lift a 2-ton shipping container using a relatively low-torque motor. What type of mechanical system can trade speed for increased lifting force?",
+    "options": [
+      "Bevel gear set with a 1:1 ratio",
+      "Worm gear reduction gearbox",
+      "Universal joint assembly",
+      "Chain coupling"
+    ],
+    "ans": 1
+  },
+  {
+    "question": "An off-grid weather station's digital temperature sensor output fluctuates wildly due to minor environmental vibrations. To smooth out the data curve in software without delaying real trends, what digital filter is easiest to implement?",
+    "options": [
+      "Fast Fourier Transform (FFT)",
+      "Moving average filter",
+      "High-pass Butterworth filter",
+      "Phase-locked loop (PLL)"
+    ],
+    "ans": 1
+  },
+  {
+    "question": "You are designing a piping network to transport fuel. To prevent the fluid from reversing direction and contaminating the source tank if the main pump fails, which type of valve must be installed?",
+    "options": [
+      "Gate valve",
+      "Butterfly valve",
+      "Check valve",
+      "Needle valve"
+    ],
+    "ans": 2
+  },
+  {
+    "question": "A team is building a concrete bunker. They need to increase the tensile and shear strength of the concrete structure so it doesn't crack or collapse under heavy shifting loads. What should they embed inside the concrete?",
+    "options": [
+      "Carbon fiber sheets on the surface",
+      "Steel rebar matrix",
+      "Aluminum mesh panels",
+      "Polyurethane foam cores"
+    ],
+    "ans": 1
+  },
+  {
+    "question": "An autonomous rover keeps drifting off course because its wheels slip on sandy terrain. You have an accelerometer, but it accumulates positional errors over time. What sensor should you add to measure angular velocity and fix orientation tracking?",
+    "options": [
+      "Barometric pressure sensor",
+      "Ultrasonic distance sensor",
+      "Gyrosensor",
+      "Hall-effect wheel encoder"
+    ],
+    "ans": 2
+  }
 ];
+
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
